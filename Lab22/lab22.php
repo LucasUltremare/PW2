@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="">
     <title>Lab22</title>
+
+<!-- Estilo da tabela -->
 
     <style>
     table,
@@ -21,14 +23,18 @@
     }
      
     th {
-        text-align: left;
+        text-align: center;
     }
     </style>
-    
+
+<!-- Fim estilo da tabela -->
+
 </head>
 <body>
 
 <?php
+
+// getTable 
 
 $conn=pg_connect("host=localhost dbname=voto11 user=aluno password=3T3K3Q");
 
@@ -36,15 +42,17 @@ $conn=pg_connect("host=localhost dbname=voto11 user=aluno password=3T3K3Q");
 
 $select=pg_query($conn, "SELECT * FROM eleicao");
 
-   while ($pegarTabela = pg_fetch_assoc($select)){
+   while ($getTable= pg_fetch_assoc($select)){
 
+// Fim getTable
 
+// Tabela
 
-       echo "<table border=5>";
+       echo "<table>";
 
        echo "<tr>";
 
-       echo "<th> <a href='lab22.php?id=".$pegarTabela['id']."'> ".$pegarTabela['nome']."|".$pegarTabela['votos']."</a></th>"; 
+       echo "<td> <a href='lab22.php?id=".$getTable['id']."'> ".$getTable['nome']."|".$getTable['votos']."</a></td>"; 
 
        echo "</tr>";
 
@@ -52,10 +60,14 @@ $select=pg_query($conn, "SELECT * FROM eleicao");
 
    }
 
+// Fim tabela   
+
 
 ?>
 
 <?php
+
+// Update Votos
 
 if (isset($_GET ['id'])) {
 
@@ -70,6 +82,8 @@ $update=pg_query($conn, "UPDATE eleicao SET votos=votos+1 WHERE id=$id");
   
 
 }
+
+// Fim update votos
 
 ?>
 
