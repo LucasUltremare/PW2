@@ -6,6 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="">
     <title>Lab22</title>
+
+    <style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+     
+    th,
+    td {
+        padding: 20px;
+    }
+     
+    th {
+        text-align: left;
+    }
+    </style>
+    
 </head>
 <body>
 
@@ -21,11 +40,11 @@ $select=pg_query($conn, "SELECT * FROM eleicao");
 
 
 
-       echo "<table>";
+       echo "<table border=5>";
 
        echo "<tr>";
 
-       echo "<td> <a href='lab22.php?id=".$pegarTabela['id']."'> ".$pegarTabela['nome']."|".$pegarTabela['votos']."</a></td>"; 
+       echo "<th> <a href='lab22.php?id=".$pegarTabela['id']."'> ".$pegarTabela['nome']."|".$pegarTabela['votos']."</a></th>"; 
 
        echo "</tr>";
 
